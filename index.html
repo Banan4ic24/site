@@ -27,15 +27,27 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: #232f3e; /* тёмно-синий в стиле Amazon */
+
+      /* синий фон + картинка склада и фургона */
+      background-color: #1d4ed8;
+      background-image: url("system-header.png"); /* путь к картинке */
+      background-repeat: no-repeat;
+      background-position: left 32px center;
+      background-size: auto 70%;
+
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid #111827;
+      border-bottom: 1px solid #1e40af;
     }
 
     .container {
       max-width: 1080px;
       margin: 0 auto;
       padding: 0 16px;
+    }
+
+    /* сдвиг логотипа и меню вправо, чтобы не перекрывать картинку */
+    header .container {
+      padding-left: 260px;
     }
 
     .nav {
@@ -45,28 +57,14 @@
       padding: 12px 0;
     }
 
-    /* ЛОГОТИП С КАРТИНКОЙ */
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #ffffff;
-    }
-
-    .logo-img {
-      height: 40px;    /* при желании можешь сделать 32 или 48 */
-      width: auto;
-      display: block;
-    }
-
-    .logo-text {
       font-weight: 700;
       font-size: 20px;
       letter-spacing: 0.03em;
-      line-height: 1.2;
+      color: #ffffff;
     }
 
-    .logo-text span {
+    .logo span {
       font-weight: 400;
       font-size: 12px;
       display: block;
@@ -101,7 +99,7 @@
       padding: 6px 12px;
       font-size: 13px;
       background: #ffffff;
-      color: #232f3e;
+      color: #1d4ed8;
       cursor: pointer;
     }
 
@@ -174,6 +172,7 @@
       transition: background 0.15s ease, border-color 0.15s ease;
     }
 
+    /* более светлые кнопки */
     .btn-primary {
       background: #2563eb;
       color: #ffffff;
@@ -423,6 +422,11 @@
 
       header {
         position: static;
+        background-image: none; /* на мобильных без картинки в хедере */
+      }
+
+      header .container {
+        padding-left: 16px; /* обычный отступ */
       }
 
       .nav-links {
@@ -443,13 +447,9 @@
 <header>
   <div class="container">
     <nav class="nav">
-      <div class="logo">
-        <!-- КАРТИНКА СКЛАД + ФУРГОН -->
-        <img src="system-van.png" alt="SYSTEM warehouse & delivery" class="logo-img">
-        <div class="logo-text" id="logo-main">
-          SYSTEM
-          <span id="logo-tagline">Логистика и фулфилмент</span>
-        </div>
+      <div class="logo" id="logo-main">
+        SYSTEM
+        <span id="logo-tagline">Логистика и фулфилмент</span>
       </div>
       <div class="nav-right">
         <div class="nav-links">
@@ -532,7 +532,7 @@
             <span id="stat-2-text">обработанных посылок в месяц</span>
           </div>
           <div class="stat">
-            <strong id="stat-3-number">140 м²</strong>
+            <strong id="stat-3-number">3 000 м²</strong>
             <span id="stat-3-text">складских помещений</span>
           </div>
           <div class="stat">
