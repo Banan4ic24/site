@@ -27,9 +27,9 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: #1d4ed8; /* синий хедер */
+      background: #232f3e; /* тёмно-синий в стиле Amazon */
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid #1e40af;
+      border-bottom: 1px solid #111827;
     }
 
     .container {
@@ -45,14 +45,28 @@
       padding: 12px 0;
     }
 
+    /* ЛОГОТИП С КАРТИНКОЙ */
     .logo {
-      font-weight: 700;
-      font-size: 20px;
-      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       color: #ffffff;
     }
 
-    .logo span {
+    .logo-img {
+      height: 40px;    /* при желании можешь сделать 32 или 48 */
+      width: auto;
+      display: block;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
       font-weight: 400;
       font-size: 12px;
       display: block;
@@ -87,7 +101,7 @@
       padding: 6px 12px;
       font-size: 13px;
       background: #ffffff;
-      color: #1d4ed8;
+      color: #232f3e;
       cursor: pointer;
     }
 
@@ -160,7 +174,6 @@
       transition: background 0.15s ease, border-color 0.15s ease;
     }
 
-    /* более светлые кнопки */
     .btn-primary {
       background: #2563eb;
       color: #ffffff;
@@ -430,9 +443,13 @@
 <header>
   <div class="container">
     <nav class="nav">
-      <div class="logo" id="logo-main">
-        SYSTEM
-        <span id="logo-tagline">Логистика и фулфилмент</span>
+      <div class="logo">
+        <!-- КАРТИНКА СКЛАД + ФУРГОН -->
+        <img src="system-van.png" alt="SYSTEM warehouse & delivery" class="logo-img">
+        <div class="logo-text" id="logo-main">
+          SYSTEM
+          <span id="logo-tagline">Логистика и фулфилмент</span>
+        </div>
       </div>
       <div class="nav-right">
         <div class="nav-links">
@@ -515,7 +532,7 @@
             <span id="stat-2-text">обработанных посылок в месяц</span>
           </div>
           <div class="stat">
-            <strong id="stat-3-number">3 000 м²</strong>
+            <strong id="stat-3-number">140 м²</strong>
             <span id="stat-3-text">складских помещений</span>
           </div>
           <div class="stat">
