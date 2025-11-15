@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>SDEK — Логистика и фулфилмент</title>
+  <title>SYSTEM — Логистика и фулфилмент</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     * {
@@ -58,6 +58,12 @@
       color: #777;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .nav-links {
       display: flex;
       gap: 16px;
@@ -71,6 +77,19 @@
 
     .nav-links a:hover {
       background: #eee;
+    }
+
+    .lang-toggle {
+      border-radius: 999px;
+      border: 1px solid #ddd;
+      padding: 6px 12px;
+      font-size: 13px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .lang-toggle:hover {
+      background: #f3f3f3;
     }
 
     main section {
@@ -364,7 +383,7 @@
       }
 
       .nav-links {
-        display: none; /* для простоты на мобиле можно спрятать меню */
+        display: none;
       }
 
       main section {
@@ -381,15 +400,18 @@
 <header>
   <div class="container">
     <nav class="nav">
-      <div class="logo">
-        SDEK
-        <span>Логистика и фулфилмент</span>
+      <div class="logo" id="logo-main">
+        SYSTEM
+        <span id="logo-tagline">Логистика и фулфилмент</span>
       </div>
-      <div class="nav-links">
-        <a href="#about">О компании</a>
-        <a href="#services">Услуги</a>
-        <a href="#team">Команда</a>
-        <a href="#contacts">Контакты</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#about" id="nav-about">О компании</a>
+          <a href="#services" id="nav-services">Услуги</a>
+          <a href="#team" id="nav-team">Команда</a>
+          <a href="#contacts" id="nav-contacts">Контакты</a>
+        </div>
+        <button class="lang-toggle" id="lang-toggle">FR</button>
       </div>
     </nav>
   </div>
@@ -400,43 +422,46 @@
   <section>
     <div class="container hero">
       <div>
-        <h1 class="hero-title">Фулфилмент и подготовка заказов для e-commerce в Европе</h1>
-        <p class="hero-subtitle">
-          SDEK — prep-центр и логистический партнёр для продавцов маркетплейсов.
-          Приём, хранение, упаковка, маркировка и отправка ваших товаров «под ключ».
+        <h1 class="hero-title" id="hero-title">
+          Фулфилмент и подготовка заказов для e-commerce в Европе
+        </h1>
+        <p class="hero-subtitle" id="hero-subtitle">
+          SYSTEM — prep-центр и логистический партнёр для продавцов маркетплейсов.
+          Мы берём на себя склад, комплектацию и отправку заказов, чтобы вы могли
+          сосредоточиться на продажах.
         </p>
         <div class="hero-buttons">
-          <a href="#contacts" class="btn-primary">Связаться с нами</a>
-          <a href="#services" class="btn-secondary">Посмотреть услуги</a>
+          <a href="#contacts" class="btn-primary" id="hero-btn-contact">Связаться с нами</a>
+          <a href="#services" class="btn-secondary" id="hero-btn-services">Посмотреть услуги</a>
         </div>
         <div class="hero-badges">
-          <span class="badge">24–48 ч обработка заказов</span>
-          <span class="badge">Склад во Франции</span>
-          <span class="badge">Работаем с Amazon FBA/FBM, Shopify и др.</span>
+          <span class="badge" id="badge-1">24–48 ч обработка заказов</span>
+          <span class="badge" id="badge-2">Склад во Франции</span>
+          <span class="badge" id="badge-3">Работаем с Amazon FBA/FBM, Shopify и др.</span>
         </div>
       </div>
       <div class="hero-card">
-        <h2>Ваш склад во Франции</h2>
-        <p>
-          Мы берём на себя операционку, чтобы вы могли сосредоточиться на
-          продажах и развитии бизнеса.
+        <h2 id="hero-card-title">Ваш склад в сердце Европы</h2>
+        <p id="hero-card-text">
+          Приём поставок, хранение, упаковка и отправка — единая команда и прозрачные
+          процессы под вашим брендом.
         </p>
         <div class="hero-stats">
           <div class="stat">
-            <strong>150+</strong>
-            активных продавцов
+            <strong id="stat-1-number">150+</strong>
+            <span id="stat-1-text">активных продавцов</span>
           </div>
           <div class="stat">
-            <strong>10 000+</strong>
-            обработанных посылок в месяц
+            <strong id="stat-2-number">10 000+</strong>
+            <span id="stat-2-text">обработанных посылок в месяц</span>
           </div>
           <div class="stat">
-            <strong>3 000 м²</strong>
-            складских помещений
+            <strong id="stat-3-number">3 000 м²</strong>
+            <span id="stat-3-text">складских помещений</span>
           </div>
           <div class="stat">
-            <strong>24/7</strong>
-            доступ к информации по заказам
+            <strong id="stat-4-number">24/7</strong>
+            <span id="stat-4-text">доступ к информации по заказам</span>
           </div>
         </div>
       </div>
@@ -446,29 +471,30 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="container">
-      <h2 class="section-title">О компании</h2>
-      <p class="section-subtitle">
-        Коротко расскажите, кто вы, сколько лет на рынке, с какими клиентами работаете.
+      <h2 class="section-title" id="about-title">О компании</h2>
+      <p class="section-subtitle" id="about-subtitle">
+        Мы помогаем продавцам маркетплейсов и интернет-магазинам надёжно работать
+        на европейском рынке без собственного склада.
       </p>
       <div class="about-grid">
         <div class="about-card">
-          <h3>Кто мы</h3>
-          <p>
-            SDEK — это команда специалистов по логистике и e-commerce,
-            сопровождающая продавцов от приёма товара до доставки конечному клиенту.
+          <h3 id="about-who-title">Кто мы</h3>
+          <p id="about-who-text-1">
+            SYSTEM — команда специалистов по логистике и e-commerce, которая берёт на себя
+            все операции: от приёма товара до доставки клиенту.
           </p>
-          <p>
+          <p id="about-who-text-2">
             Мы работаем прозрачно: фиксированные тарифы, понятные отчёты и личный
             менеджер для каждого клиента.
           </p>
         </div>
         <div class="about-card">
-          <h3>Почему клиенты выбирают нас</h3>
+          <h3 id="about-why-title">Почему с нами удобно</h3>
           <ul class="about-list">
-            <li>✔ Опыт работы с маркетплейсами (Amazon, Cdiscount и др.)</li>
-            <li>✔ Гибкие решения для FBA, FBM и D2C</li>
-            <li>✔ Личные отчёты по остаткам и движениям товаров</li>
-            <li>✔ Поддержка на русском, французском и английском</li>
+            <li id="about-why-1">✔ Опыт работы с Amazon, Cdiscount и другими маркетплейсами</li>
+            <li id="about-why-2">✔ Решения для FBA, FBM и прямых интернет-магазинов</li>
+            <li id="about-why-3">✔ Онлайн-отчёты по остаткам и движениям товаров</li>
+            <li id="about-why-4">✔ Поддержка на русском, французском и английском</li>
           </ul>
         </div>
       </div>
@@ -478,41 +504,42 @@
   <!-- SERVICES -->
   <section id="services">
     <div class="container">
-      <h2 class="section-title">Наши услуги</h2>
-      <p class="section-subtitle">
-        Опишите основные направления, чтобы клиент понимал, что можно делегировать вам.
+      <h2 class="section-title" id="services-title">Наши услуги</h2>
+      <p class="section-subtitle" id="services-subtitle">
+        Мы закрываем полный цикл обработки заказов — от приёма поставки до отправки
+        посылки конечному клиенту.
       </p>
       <div class="cards-grid">
         <div class="card">
-          <h3>Приём и хранение</h3>
-          <small>Inbound & Storage</small>
-          <p>
-            Принимаем паллеты и коробки от ваших поставщиков, проверяем количество и
-            качество, размещаем на складе. Гибкие тарифы хранения.
+          <h3 id="service-1-title">Приём и хранение</h3>
+          <small id="service-1-small">Inbound &amp; Storage</small>
+          <p id="service-1-text">
+            Принимаем паллеты и коробки, проверяем количество и состояние товара,
+            размещаем на складе. Гибкие тарифы хранения и понятные отчёты.
           </p>
         </div>
         <div class="card">
-          <h3>Упаковка и маркировка</h3>
-          <small>Packaging & Labeling</small>
-          <p>
-            Перепаковка, стикеры, FNSKU, наборы (bundles), комплекты. Следуем
-            требованиям маркетплейсов и вашим брендовым стандартам.
+          <h3 id="service-2-title">Упаковка и маркировка</h3>
+          <small id="service-2-small">Packaging &amp; Labeling</small>
+          <p id="service-2-text">
+            Перепаковка, стикеры, FNSKU, наборы и комплекты. Следуем требованиям
+            маркетплейсов и вашим брендовым стандартам.
           </p>
         </div>
         <div class="card">
-          <h3>Отправка заказов</h3>
-          <small>Order Fulfilment</small>
-          <p>
+          <h3 id="service-3-title">Отправка заказов</h3>
+          <small id="service-3-small">Order Fulfilment</small>
+          <p id="service-3-text">
             Подготовка и отправка заказов для FBA, FBM и интернет-магазинов.
             Интеграция с основными транспортными компаниями.
           </p>
         </div>
         <div class="card">
-          <h3>Дополнительные услуги</h3>
-          <small>Value Added Services</small>
-          <p>
-            Фото товаров, проверка качества, возвраты, утилизация, переупаковка
-            возвратов, простая таможенная документация при необходимости.
+          <h3 id="service-4-title">Дополнительные услуги</h3>
+          <small id="service-4-small">Value Added Services</small>
+          <p id="service-4-text">
+            Фото товаров, проверка качества, обработка возвратов, утилизация,
+            переупаковка и базовая таможенная документация при необходимости.
           </p>
         </div>
       </div>
@@ -522,33 +549,34 @@
   <!-- TEAM -->
   <section id="team">
     <div class="container">
-      <h2 class="section-title">Наша команда</h2>
-      <p class="section-subtitle">
-        Покажите ключевых людей, с которыми будет общаться клиент.
+      <h2 class="section-title" id="team-title">Наша команда</h2>
+      <p class="section-subtitle" id="team-subtitle">
+        С вами работают люди, которые знают e-commerce изнутри и говорят на вашем языке.
       </p>
       <div class="team-grid">
         <div class="team-card">
+          <div class="team-avatar">MV</div>
+          <h3 id="team-1-name">Maksim Volichenko</h3>
+          <div class="team-role" id="team-1-role">Fondateur</div>
+          <p class="team-desc" id="team-1-desc">
+            Отвечает за видение проекта и развитие услуг SYSTEM для продавцов на
+            европейских маркетплейсах.
+          </p>
+        </div>
+        <div class="team-card">
           <div class="team-avatar">МФ</div>
-          <h3>Максим Фёдоров</h3>
-          <div class="team-role">Президент, co-fondateur</div>
-          <p class="team-desc">
-            Отвечает за стратегию, юридические и финансовые вопросы компании.
+          <h3 id="team-2-name">Maksim Fedorov</h3>
+          <div class="team-role" id="team-2-role">Président</div>
+          <p class="team-desc" id="team-2-desc">
+            Курирует юридические и финансовые вопросы компании и взаимодействие с партнёрами.
           </p>
         </div>
         <div class="team-card">
           <div class="team-avatar">ЛО</div>
-          <h3>Любо́вь Остроумова</h3>
-          <div class="team-role">Business Development & Operations</div>
-          <p class="team-desc">
-            Контакт с клиентами, запуск новых проектов, координация работы склада.
-          </p>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar">ТК</div>
-          <h3>Тим команды</h3>
-          <div class="team-role">Склад, упаковка, логистика</div>
-          <p class="team-desc">
-            Команда операторов, которая каждый день обрабатывает ваши поставки и заказы.
+          <h3 id="team-3-name">Liubov Ostoumova</h3>
+          <div class="team-role" id="team-3-role">Business Development &amp; Operations</div>
+          <p class="team-desc" id="team-3-desc">
+            Точка входа для клиентов: запуск новых проектов, тарифы, ежедневная координация склада.
           </p>
         </div>
       </div>
@@ -558,40 +586,44 @@
   <!-- CONTACTS -->
   <section id="contacts">
     <div class="container">
-      <h2 class="section-title">Контакты</h2>
-      <p class="section-subtitle">
-        Сделайте так, чтобы до вас было проще всего дозвониться и дописаться.
+      <h2 class="section-title" id="contacts-title">Контакты</h2>
+      <p class="section-subtitle" id="contacts-subtitle">
+        Выберите удобный способ связи — мы ответим в ближайшее время.
       </p>
       <div class="contact-grid">
         <div class="contact-box">
           <div class="contact-row">
-            <div class="contact-label">Телефон</div>
-            <div class="contact-value">+33 (0)X XX XX XX XX</div>
+            <div class="contact-label" id="contact-phone-label">Телефон</div>
+            <div class="contact-value" id="contact-phone-value">+33 (0)X XX XX XX XX</div>
           </div>
           <div class="contact-row">
-            <div class="contact-label">Email</div>
+            <div class="contact-label" id="contact-email-label">Email</div>
             <div class="contact-value">
-              <a href="mailto:contact@sdek.fr">contact@sdek.fr</a>
+              <a href="mailto:contact@system-prep.fr" id="contact-email-value">contact@system-prep.fr</a>
             </div>
           </div>
           <div class="contact-row">
-            <div class="contact-label">Адрес</div>
-            <div class="contact-value">
-              123 Rue de l'Exemple, 78000, Франция
+            <div class="contact-label" id="contact-address-label">Адрес</div>
+            <div class="contact-value" id="contact-address-value">
+              123 Rue de l'Exemple, 78000, France
             </div>
           </div>
           <div class="contact-row">
-            <div class="contact-label">Часы работы</div>
-            <div class="contact-value">
-              Пн–Пт: 9:00–18:00, по записи
+            <div class="contact-label" id="contact-hours-label">Часы работы</div>
+            <div class="contact-value" id="contact-hours-value">
+              Пн–Пт: 9:00–18:00, по предварительной записи
             </div>
           </div>
           <div class="contact-actions">
-            <a href="mailto:contact@sdek.fr" class="btn-primary">Написать письмо</a>
-            <a href="tel:+33000000000" class="btn-secondary">Позвонить</a>
+            <a href="mailto:contact@system-prep.fr" class="btn-primary" id="contact-btn-email">
+              Написать письмо
+            </a>
+            <a href="tel:+33000000000" class="btn-secondary" id="contact-btn-call">
+              Позвонить
+            </a>
           </div>
         </div>
-        <div class="map-placeholder">
+        <div class="map-placeholder" id="map-placeholder">
           Здесь можно встроить карту Google Maps с адресом склада
           (вставить iframe-код из Google Maps).
         </div>
@@ -602,9 +634,213 @@
 
 <footer>
   <div class="container footer-inner">
-    <div>© 2025 SDEK. Все права защищены.</div>
-    <div>Политика конфиденциальности · Правовая информация</div>
+    <div id="footer-left">© 2025 SYSTEM. Все права защищены.</div>
+    <div id="footer-right">Политика конфиденциальности · Правовая информация</div>
   </div>
 </footer>
+
+<script>
+  const translations = {
+    ru: {
+      "doc-title": "SYSTEM — Логистика и фулфилмент",
+      "logo-tagline": "Логистика и фулфилмент",
+      "nav-about": "О компании",
+      "nav-services": "Услуги",
+      "nav-team": "Команда",
+      "nav-contacts": "Контакты",
+      "hero-title": "Фулфилмент и подготовка заказов для e-commerce в Европе",
+      "hero-subtitle":
+        "SYSTEM — prep-центр и логистический партнёр для продавцов маркетплейсов. Мы берём на себя склад, комплектацию и отправку заказов, чтобы вы могли сосредоточиться на продажах.",
+      "hero-btn-contact": "Связаться с нами",
+      "hero-btn-services": "Посмотреть услуги",
+      "badge-1": "24–48 ч обработка заказов",
+      "badge-2": "Склад во Франции",
+      "badge-3": "Работаем с Amazon FBA/FBM, Shopify и др.",
+      "hero-card-title": "Ваш склад в сердце Европы",
+      "hero-card-text":
+        "Приём поставок, хранение, упаковка и отправка — единая команда и прозрачные процессы под вашим брендом.",
+      "stat-1-text": "активных продавцов",
+      "stat-2-text": "обработанных посылок в месяц",
+      "stat-3-text": "складских помещений",
+      "stat-4-text": "доступ к информации по заказам",
+      "about-title": "О компании",
+      "about-subtitle":
+        "Мы помогаем продавцам маркетплейсов и интернет-магазинам надёжно работать на европейском рынке без собственного склада.",
+      "about-who-title": "Кто мы",
+      "about-who-text-1":
+        "SYSTEM — команда специалистов по логистике и e-commerce, которая берёт на себя все операции: от приёма товара до доставки клиенту.",
+      "about-who-text-2":
+        "Мы работаем прозрачно: фиксированные тарифы, понятные отчёты и личный менеджер для каждого клиента.",
+      "about-why-title": "Почему с нами удобно",
+      "about-why-1": "✔ Опыт работы с Amazon, Cdiscount и другими маркетплейсами",
+      "about-why-2": "✔ Решения для FBA, FBM и прямых интернет-магазинов",
+      "about-why-3": "✔ Онлайн-отчёты по остаткам и движениям товаров",
+      "about-why-4": "✔ Поддержка на русском, французском и английском",
+      "services-title": "Наши услуги",
+      "services-subtitle":
+        "Мы закрываем полный цикл обработки заказов — от приёма поставки до отправки посылки конечному клиенту.",
+      "service-1-title": "Приём и хранение",
+      "service-1-small": "Inbound &amp; Storage",
+      "service-1-text":
+        "Принимаем паллеты и коробки, проверяем количество и состояние товара, размещаем на складе. Гибкие тарифы хранения и понятные отчёты.",
+      "service-2-title": "Упаковка и маркировка",
+      "service-2-small": "Packaging &amp; Labeling",
+      "service-2-text":
+        "Перепаковка, стикеры, FNSKU, наборы и комплекты. Следуем требованиям маркетплейсов и вашим брендовым стандартам.",
+      "service-3-title": "Отправка заказов",
+      "service-3-small": "Order Fulfilment",
+      "service-3-text":
+        "Подготовка и отправка заказов для FBA, FBM и интернет-магазинов. Интеграция с основными транспортными компаниями.",
+      "service-4-title": "Дополнительные услуги",
+      "service-4-small": "Value Added Services",
+      "service-4-text":
+        "Фото товаров, проверка качества, обработка возвратов, утилизация, переупаковка и базовая таможенная документация при необходимости.",
+      "team-title": "Наша команда",
+      "team-subtitle":
+        "С вами работают люди, которые знают e-commerce изнутри и говорят на вашем языке.",
+      "team-1-name": "Maksim Volichenko",
+      "team-1-role": "Fondateur",
+      "team-1-desc":
+        "Отвечает за видение проекта и развитие услуг SYSTEM для продавцов на европейских маркетплейсах.",
+      "team-2-name": "Maksim Fedorov",
+      "team-2-role": "Président",
+      "team-2-desc":
+        "Курирует юридические и финансовые вопросы компании и взаимодействие с партнёрами.",
+      "team-3-name": "Liubov Ostoumova",
+      "team-3-role": "Business Development &amp; Operations",
+      "team-3-desc":
+        "Точка входа для клиентов: запуск новых проектов, тарифы, ежедневная координация склада.",
+      "contacts-title": "Контакты",
+      "contacts-subtitle":
+        "Выберите удобный способ связи — мы ответим в ближайшее время.",
+      "contact-phone-label": "Телефон",
+      "contact-email-label": "Email",
+      "contact-address-label": "Адрес",
+      "contact-hours-label": "Часы работы",
+      "contact-hours-value": "Пн–Пт: 9:00–18:00, по предварительной записи",
+      "contact-btn-email": "Написать письмо",
+      "contact-btn-call": "Позвонить",
+      "map-placeholder":
+        "Здесь можно встроить карту Google Maps с адресом склада (вставить iframe-код из Google Maps).",
+      "footer-left": "© 2025 SYSTEM. Все права защищены.",
+      "footer-right": "Политика конфиденциальности · Правовая информация"
+    },
+    fr: {
+      "doc-title": "SYSTEM — Logistique et fulfilment e-commerce",
+      "logo-tagline": "Logistique & fulfilment e-commerce",
+      "nav-about": "Entreprise",
+      "nav-services": "Services",
+      "nav-team": "Équipe",
+      "nav-contacts": "Contact",
+      "hero-title": "Fulfilment et préparation de commandes pour l’e-commerce en Europe",
+      "hero-subtitle":
+        "SYSTEM est un centre de préparation et un partenaire logistique pour les vendeurs sur marketplaces. Nous gérons le stock, le picking et l’expédition pour que vous puissiez vous concentrer sur les ventes.",
+      "hero-btn-contact": "Nous contacter",
+      "hero-btn-services": "Découvrir nos services",
+      "badge-1": "Traitement des commandes en 24–48 h",
+      "badge-2": "Entrepôt en France",
+      "badge-3": "Amazon FBA/FBM, Shopify et plus encore",
+      "hero-card-title": "Votre entrepôt au cœur de l’Europe",
+      "hero-card-text":
+        "Réception des livraisons, stockage, emballage et expédition : une seule équipe, des processus transparents, sous votre marque.",
+      "stat-1-text": "vendeurs actifs",
+      "stat-2-text": "colis traités par mois",
+      "stat-3-text": "d’entrepôts",
+      "stat-4-text": "accès aux informations de suivi",
+      "about-title": "Qui sommes-nous ?",
+      "about-subtitle":
+        "Nous aidons les vendeurs sur marketplaces et les boutiques en ligne à opérer sereinement sur le marché européen sans avoir leur propre entrepôt.",
+      "about-who-title": "SYSTEM en quelques mots",
+      "about-who-text-1":
+        "SYSTEM est une équipe d’experts logistique et e-commerce qui prend en charge toutes les opérations : de la réception des marchandises jusqu’à la livraison au client final.",
+      "about-who-text-2":
+        "Nous travaillons en toute transparence : tarifs clairs, rapports détaillés et un interlocuteur dédié pour chaque client.",
+      "about-why-title": "Pourquoi travailler avec nous ?",
+      "about-why-1": "✔ Expérience avec Amazon, Cdiscount et d’autres marketplaces",
+      "about-why-2": "✔ Solutions pour FBA, FBM et boutiques en ligne D2C",
+      "about-why-3": "✔ Reporting en ligne sur les stocks et les mouvements",
+      "about-why-4": "✔ Support en russe, français et anglais",
+      "services-title": "Nos services",
+      "services-subtitle":
+        "Nous couvrons tout le cycle logistique : de la réception de la marchandise à l’expédition du colis au client final.",
+      "service-1-title": "Réception et stockage",
+      "service-1-small": "Inbound &amp; Storage",
+      "service-1-text":
+        "Réception de palettes et de cartons, contrôle des quantités et de l’état des produits, mise en stock. Tarifs de stockage flexibles et rapports clairs.",
+      "service-2-title": "Emballage et étiquetage",
+      "service-2-small": "Packaging &amp; Labeling",
+      "service-2-text":
+        "Re-emballage, étiquettes, FNSKU, bundles et sets. Conformité aux exigences des marketplaces et à votre charte de marque.",
+      "service-3-title": "Préparation des commandes",
+      "service-3-small": "Order Fulfilment",
+      "service-3-text":
+        "Préparation et expédition des commandes FBA, FBM et e-boutiques. Intégration avec les principaux transporteurs.",
+      "service-4-title": "Services additionnels",
+      "service-4-small": "Value Added Services",
+      "service-4-text":
+        "Photos produits, contrôle qualité, gestion des retours, destruction, re-emballage et documentation douanière simple si nécessaire.",
+      "team-title": "Notre équipe",
+      "team-subtitle":
+        "Une équipe qui connaît l’e-commerce de l’intérieur et parle votre langue.",
+      "team-1-name": "Maksim Volichenko",
+      "team-1-role": "Fondateur",
+      "team-1-desc":
+        "Pilote la vision du projet et le développement de l’offre SYSTEM pour les vendeurs sur les marketplaces européennes.",
+      "team-2-name": "Maksim Fedorov",
+      "team-2-role": "Président",
+      "team-2-desc":
+        "Supervise les questions juridiques et financières de l’entreprise et les relations avec les partenaires.",
+      "team-3-name": "Liubov Ostoumova",
+      "team-3-role": "Business Development &amp; Operations",
+      "team-3-desc":
+        "Premier point de contact pour les clients : lancement des projets, tarification, coordination quotidienne de l’entrepôt.",
+      "contacts-title": "Contact",
+      "contacts-subtitle":
+        "Choisissez le canal qui vous convient, nous vous répondrons rapidement.",
+      "contact-phone-label": "Téléphone",
+      "contact-email-label": "Email",
+      "contact-address-label": "Adresse",
+      "contact-hours-label": "Horaires",
+      "contact-hours-value": "Lun–Ven : 9h00–18h00, sur rendez-vous",
+      "contact-btn-email": "Envoyer un email",
+      "contact-btn-call": "Appeler",
+      "map-placeholder":
+        "Vous pouvez intégrer ici une carte Google Maps avec l’adresse de l’entrepôt (iframe).",
+      "footer-left": "© 2025 SYSTEM. Tous droits réservés.",
+      "footer-right": "Politique de confidentialité · Mentions légales"
+    }
+  };
+
+  let currentLang = "ru";
+
+  function applyTranslations(lang) {
+    const dict = translations[lang];
+    for (const key in dict) {
+      if (key === "doc-title") {
+        document.title = dict[key];
+      } else {
+        const el = document.getElementById(key);
+        if (el) {
+          el.innerHTML = dict[key];
+        }
+      }
+    }
+    currentLang = lang;
+    const toggle = document.getElementById("lang-toggle");
+    if (toggle) {
+      toggle.textContent = lang === "ru" ? "FR" : "RU";
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    applyTranslations("ru");
+    const toggle = document.getElementById("lang-toggle");
+    if (toggle) {
+      toggle.addEventListener("click", function () {
+        applyTranslations(currentLang === "ru" ? "fr" : "ru");
+      });
+    }
+  });
+</script>
 </body>
 </html>
