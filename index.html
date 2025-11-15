@@ -27,14 +27,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
-
-      /* синий фон + картинка склада и фургона */
-      background-color: #1d4ed8;
-      background-image: url("system-header.png"); /* путь к картинке */
-      background-repeat: no-repeat;
-      background-position: left 32px center;
-      background-size: auto 70%;
-
+      background: #1d4ed8; /* синий хедер */
       backdrop-filter: blur(10px);
       border-bottom: 1px solid #1e40af;
     }
@@ -43,11 +36,6 @@
       max-width: 1080px;
       margin: 0 auto;
       padding: 0 16px;
-    }
-
-    /* сдвиг логотипа и меню вправо, чтобы не перекрывать картинку */
-    header .container {
-      padding-left: 260px;
     }
 
     .nav {
@@ -422,11 +410,6 @@
 
       header {
         position: static;
-        background-image: none; /* на мобильных без картинки в хедере */
-      }
-
-      header .container {
-        padding-left: 16px; /* обычный отступ */
       }
 
       .nav-links {
@@ -532,7 +515,7 @@
             <span id="stat-2-text">обработанных посылок в месяц</span>
           </div>
           <div class="stat">
-            <strong id="stat-3-number">3 000 м²</strong>
+            <strong id="stat-3-number">140 м²</strong>
             <span id="stat-3-text">складских помещений</span>
           </div>
           <div class="stat">
