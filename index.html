@@ -27,9 +27,9 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: #ffffffcc;
+      background: #1d4ed8; /* синий хедер */
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e5e5e5;
+      border-bottom: 1px solid #1e40af;
     }
 
     .container {
@@ -49,13 +49,14 @@
       font-weight: 700;
       font-size: 20px;
       letter-spacing: 0.03em;
+      color: #ffffff;
     }
 
     .logo span {
       font-weight: 400;
       font-size: 12px;
       display: block;
-      color: #777;
+      color: #e5e7eb;
     }
 
     .nav-right {
@@ -73,23 +74,25 @@
     .nav-links a {
       padding: 6px 10px;
       border-radius: 999px;
+      color: #e5e7eb;
     }
 
     .nav-links a:hover {
-      background: #eee;
+      background: rgba(255, 255, 255, 0.15);
     }
 
     .lang-toggle {
       border-radius: 999px;
-      border: 1px solid #ddd;
+      border: 1px solid transparent;
       padding: 6px 12px;
       font-size: 13px;
-      background: #fff;
+      background: #ffffff;
+      color: #1d4ed8;
       cursor: pointer;
     }
 
     .lang-toggle:hover {
-      background: #f3f3f3;
+      background: #e5edff;
     }
 
     main section {
@@ -115,6 +118,30 @@
       margin-bottom: 24px;
     }
 
+    /* Иконки посылки и фургона */
+    .hero-icons {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .icon-card {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: #e0edff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+      color: #1d4ed8;
+    }
+
+    .icon-card svg {
+      width: 34px;
+      height: 34px;
+    }
+
     .hero-buttons {
       display: flex;
       gap: 12px;
@@ -130,24 +157,27 @@
       border: 1px solid transparent;
       cursor: pointer;
       display: inline-block;
+      transition: background 0.15s ease, border-color 0.15s ease;
     }
 
+    /* более светлые кнопки */
     .btn-primary {
-      background: #111827;
-      color: #fff;
+      background: #2563eb;
+      color: #ffffff;
     }
 
     .btn-primary:hover {
-      background: #000;
+      background: #1d4ed8;
     }
 
     .btn-secondary {
-      background: #fff;
-      border-color: #ddd;
+      background: #e5edff;
+      border-color: #c7d2fe;
+      color: #1f2937;
     }
 
     .btn-secondary:hover {
-      background: #f3f3f3;
+      background: #dbeafe;
     }
 
     .hero-badges {
@@ -288,7 +318,7 @@
       width: 72px;
       height: 72px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #111827, #4b5563);
+      background: linear-gradient(135deg, #1d4ed8, #60a5fa);
       margin: 0 auto 12px;
       display: flex;
       align-items: center;
@@ -422,6 +452,35 @@
   <section>
     <div class="container hero">
       <div>
+        <!-- иконки посылки и фургончика -->
+        <div class="hero-icons">
+          <div class="icon-card" aria-hidden="true">
+            <!-- посылка -->
+            <svg viewBox="0 0 48 48">
+              <rect x="9" y="12" width="30" height="24" rx="4" ry="4"
+                    fill="none" stroke="currentColor" stroke-width="2"></rect>
+              <line x1="9" y1="24" x2="39" y2="24"
+                    stroke="currentColor" stroke-width="2"></line>
+              <line x1="21" y1="12" x2="21" y2="36"
+                    stroke="currentColor" stroke-width="2"></line>
+            </svg>
+          </div>
+          <div class="icon-card" aria-hidden="true">
+            <!-- фургон -->
+            <svg viewBox="0 0 48 48">
+              <rect x="6" y="18" width="22" height="14" rx="2" ry="2"
+                    fill="none" stroke="currentColor" stroke-width="2"></rect>
+              <path d="M28 20h8l5 6v6h-13z"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linejoin="round"></path>
+              <circle cx="14" cy="34" r="3" fill="none" stroke="currentColor" stroke-width="2"></circle>
+              <circle cx="33" cy="34" r="3" fill="none" stroke="currentColor" stroke-width="2"></circle>
+              <rect x="31" y="22" width="4" height="4"
+                    fill="none" stroke="currentColor" stroke-width="2"></rect>
+            </svg>
+          </div>
+        </div>
+
         <h1 class="hero-title" id="hero-title">
           Фулфилмент и подготовка заказов для e-commerce в Европе
         </h1>
@@ -456,7 +515,7 @@
             <span id="stat-2-text">обработанных посылок в месяц</span>
           </div>
           <div class="stat">
-            <strong id="stat-3-number">140 м²</strong>
+            <strong id="stat-3-number">3 000 м²</strong>
             <span id="stat-3-text">складских помещений</span>
           </div>
           <div class="stat">
@@ -844,4 +903,3 @@
 </script>
 </body>
 </html>
-
